@@ -4,13 +4,13 @@ interface Todo {
   description?: string
   category?: TodoCategory
   dueDate?: Date
-  priority?: 'low' | 'medium' | 'high'
+  priority?: 'none' | 'low' | 'medium' | 'high'
   completed?: boolean
   createdAt?: Date
   updatedAt?: Date
   softDeletedAt?: Date
 }
 
-type TodoCategory = 'work' | 'personal' | 'shopping' | 'others'
+type TodoCategory = 'work' | 'personal' | 'shopping' | 'others' | unknown
 
 export type { Todo, TodoCategory }

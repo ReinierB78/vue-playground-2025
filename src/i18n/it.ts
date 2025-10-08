@@ -13,7 +13,8 @@ export default {
       title: 'La mia lista di cose da fare',
       addTask: 'Aggiungi attività',
       placeholder: "Cosa c'è da fare?",
-      empty: 'Non hai attività per oggi! 🎉'
+      empty: 'Non hai attività per oggi! 🎉',
+      descriptionPlaceholder: "Descrizione di cosa c'è da fare"
     }
   },
   contactForm: {

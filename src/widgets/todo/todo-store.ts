@@ -1,4 +1,6 @@
 import { db } from '@/firebase/config'
+import { Todo } from '@/types'
+import { create } from 'domain'
 import {
   DocumentData,
   addDoc,
@@ -16,12 +18,17 @@ const useTodoStore = defineStore('todo', () => {
   const message = ref('')
   const status = ref('')
 
-  const createTodo = async (todoText: string) => {
+  const createTodo = async (todo: Todo) => {
     status.value = 'Bezig met toevoegen...'
     try {
       const docRef = await addDoc(collection(db, 'todos'), {
-        text: todoText,
-        completed: false
+        title: todo.title,
+        description: todo.description || null,
+        category: todo.category || null,
+        priority: todo.priority || null,
+        dueDate: todo.dueDate || null,
+        completed: false,
+        createdAt: new Date()
       })
 
       status.value = 'Todo succesvol toegevoegd!'
@@ -50,7 +57,7 @@ const useTodoStore = defineStore('todo', () => {
       // 2. Roep de update functie aan met de te wijzigen velden
       await updateDoc(docRef, {
         completed: updatedData.completed,
-        text: updatedData.text
+        title: updatedData.title
       })
 
       console.log(`Document met ID: ${id} is succesvol bijgewerkt met de data .`, updatedData)

@@ -13,7 +13,8 @@ export default {
       title: 'Mijn takenlijst',
       addTask: 'Taak toevoegen',
       placeholder: 'Wat moet er gedaan worden?',
-      empty: 'Je hebt geen taken voor vandaag! 🎉'
+      empty: 'Je hebt geen taken voor vandaag! 🎉',
+      descriptionPlaceholder: 'Omschrijving van wat er gedaan moet worden'
     }
   },
   contactForm: {

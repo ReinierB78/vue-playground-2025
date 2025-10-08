@@ -13,7 +13,8 @@ export default {
       title: 'My to-do list',
       addTask: 'Add task',
       placeholder: 'What needs to be done?',
-      empty: 'You have no tasks for today! 🎉'
+      empty: 'You have no tasks for today! 🎉',
+      descriptionPlaceholder: 'Description of what needs to be done'
     }
   },
   contactForm: {

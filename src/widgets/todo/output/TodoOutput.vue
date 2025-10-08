@@ -18,11 +18,11 @@
         >
           <InputCheckbox
             :id="item.id"
-            :label="item.text"
+            :label="item.title"
             :modelValue="item.completed"
             :handleInput="
               (value: boolean) =>
-                todoStore.updateTodo(item.id, { completed: value, text: item.text })
+                todoStore.updateTodo(item.id, { completed: value, title: item.title })
             "
           />
           <span class="relative">
