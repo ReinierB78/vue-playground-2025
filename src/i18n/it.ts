@@ -8,6 +8,12 @@ export default {
         twopart: 'In due parti'
       },
       refresh: "Un'altra"
+    },
+    todo: {
+      title: 'La mia lista di cose da fare',
+      addTask: 'Aggiungi attività',
+      placeholder: "Cosa c'è da fare?",
+      empty: 'Non hai attività per oggi! 🎉'
     }
   },
   contactForm: {
@@ -37,6 +43,7 @@ export default {
       home: 'Radico',
       about: 'Chi siamo',
       contact: 'Contatti',
+      buyProduct: 'Compra prodotto',
       search: 'Cherco'
     },
     footer: {

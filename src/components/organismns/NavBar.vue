@@ -54,7 +54,7 @@
               <li
                 v-for="locale in availableLocales"
                 :key="locale"
-                @click="changeLocale(locale), (isDropdownOpen = false)"
+                @click="(changeLocale(locale), (isDropdownOpen = false))"
                 class="px-4 py-2 hover:bg-gray-100"
               >
                 {{ locale.toUpperCase() }}
@@ -112,11 +112,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import Logo from '@/components/Logo.vue'
-
+import Logo from '@/components/organismns/Logo.vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
 
 const { t } = useI18n()
 

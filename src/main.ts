@@ -1,9 +1,8 @@
 import '@/assets/tailwind.css'
-
-import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
+import { createApp } from 'vue'
 import App from './App.vue'
+import './firebase/config'
 import i18n from './i18n'
 import router from './router'
 

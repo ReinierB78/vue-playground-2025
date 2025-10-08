@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { persons } from '../assets/data/persons'
 import type { Person } from '../assets/data/persons'
 
@@ -41,7 +41,7 @@ const searchQuery = ref('')
 let sortOrder = ref<'asc' | 'desc'>('asc')
 
 const filteredPersons = computed(() => {
-  return filterPersons(searchQuery.value, sortOrder.value)
+  return filterPersons(searchQuery.value, sortOrder.value as SortOption)
 })
 
 const filterPersons = (query: string, sortBy: SortOption) => {

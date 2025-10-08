@@ -8,6 +8,12 @@ export default {
         twopart: 'Tweevoudig'
       },
       refresh: 'Nog eentje'
+    },
+    todo: {
+      title: 'Mijn takenlijst',
+      addTask: 'Taak toevoegen',
+      placeholder: 'Wat moet er gedaan worden?',
+      empty: 'Je hebt geen taken voor vandaag! 🎉'
     }
   },
   contactForm: {
@@ -37,6 +43,7 @@ export default {
       home: 'Home',
       about: 'Over mij',
       contact: 'Contact',
+      buyProduct: 'Product kopen',
       search: 'Zoeken'
     },
     footer: {

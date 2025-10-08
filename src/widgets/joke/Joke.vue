@@ -28,26 +28,20 @@
       <div v-else><Loading /></div>
     </template>
     <template #footer>
-      <button
-        :disabled="updating"
-        @click="refreshJoke"
-        class="text-white rounded px-2 py-1 w-[100%]"
-        :class="[updating ? 'bg-blue-200' : 'bg-blue-500']"
-      >
+      <Button :full-width="true" :handleClick="refreshJoke" :loading="updating">
         <span v-if="!updating">{{ t('widgets.joke.refresh') }}</span>
         <span v-else>...</span>
-      </button>
+      </Button>
     </template>
   </WidgetLayout>
 </template>
 
 <script setup lang="ts">
-import Loading from '@/components/Loading.vue'
+import { Button } from '@/components/molecules'
+import { Loading } from '@/components/organismns'
 import WidgetLayout from '@/widgets/WidgetLayout.vue'
-
 import { useJokeStore } from '@/widgets/joke/joke-store'
-import { onMounted, computed, ref } from 'vue'
-
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

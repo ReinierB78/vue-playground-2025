@@ -21,6 +21,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/buy-product',
+      name: 'buyProduct',
+      component: () => import('../views/BuyProduct.vue'),
+      meta: {
+        location: ['navbar', 'footer']
+      }
+    },
+    {
       path: '/contact',
       name: 'contact',
       component: () => import('../views/ContactView.vue'),

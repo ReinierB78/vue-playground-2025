@@ -63,8 +63,10 @@
               </a>
             </li>
             <li class="text-sm">
-              123 Street Name<br />
-              City, State 12345<br />
+              123 Street Name
+              <br />
+              City, State 12345
+              <br />
               Country
             </li>
           </ul>

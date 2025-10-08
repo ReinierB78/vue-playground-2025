@@ -20,9 +20,9 @@
 
             <!-- Name Field -->
             <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">{{
-                t('contactForm.name.label')
-              }}</label>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                {{ t('contactForm.name.label') }}
+              </label>
               <input
                 :placeholder="t('contactForm.name.placeholder')"
                 v-model="formData.name"
@@ -37,7 +37,8 @@
             <!-- Email Field -->
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                {{ t('contactForm.email.label') }} <span class="text-red-500">*</span>
+                {{ t('contactForm.email.label') }}
+                <span class="text-red-500">*</span>
               </label>
               <input
                 :placeholder="t('contactForm.email.placeholder')"
@@ -52,9 +53,9 @@
             </div>
             <!-- Reason Selection -->
             <div>
-              <label for="reason" class="block text-sm font-medium text-gray-700 mb-1">{{
-                t('contactForm.reason.label')
-              }}</label>
+              <label for="reason" class="block text-sm font-medium text-gray-700 mb-1">
+                {{ t('contactForm.reason.label') }}
+              </label>
               <select
                 v-model="formData.reason"
                 id="reason"
@@ -69,9 +70,9 @@
 
             <!-- Message Field -->
             <div>
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">{{
-                t('contactForm.message.label')
-              }}</label>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+                {{ t('contactForm.message.label') }}
+              </label>
               <textarea
                 v-model="formData.message"
                 id="message"
@@ -112,7 +113,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, watch, onMounted } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

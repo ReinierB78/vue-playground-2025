@@ -8,6 +8,12 @@ export default {
         twopart: 'Two part'
       },
       refresh: 'Another one'
+    },
+    todo: {
+      title: 'My to-do list',
+      addTask: 'Add task',
+      placeholder: 'What needs to be done?',
+      empty: 'You have no tasks for today! 🎉'
     }
   },
   contactForm: {
@@ -37,6 +43,7 @@ export default {
       home: 'Home',
       about: 'About',
       contact: 'Contact',
+      buyProduct: 'Buy product',
       search: 'Search'
     },
 

@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
 import { JokeApi } from '@/widgets/joke/joke-api'
+import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 const useJokeStore = defineStore('joke', () => {
