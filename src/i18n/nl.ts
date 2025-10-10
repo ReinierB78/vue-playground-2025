@@ -16,6 +16,18 @@ export default {
       empty: 'Je hebt geen taken voor vandaag! 🎉',
       descriptionPlaceholder: 'Omschrijving van wat er gedaan moet worden',
       alertWrongFormat: 'Voer een geldige todo in'
+    },
+    login: {
+      bodyTitle: 'Meld je aan bij je account',
+      emailLabel: 'Je email',
+      emailPlaceholder: 'Vul je email in',
+      passwordLabel: 'Wachtwoord',
+      passwordPlaceholder: 'Vul je wachtwoord in',
+      rememberMeLabel: 'Onthoud mij',
+      forgotPassword: 'Wachtwoord vergeten?',
+      noAccountText: 'Heb je nog geen account?',
+      noAccountLink: 'Registreer je hier',
+      submitButton: 'Meld je aan'
     }
   },
   contactForm: {
@@ -46,7 +58,8 @@ export default {
       about: 'Over mij',
       contact: 'Contact',
       buyProduct: 'Product kopen',
-      search: 'Zoeken'
+      search: 'Zoeken',
+      login: 'Inloggen'
     },
     footer: {
       solutions: 'Oplossingen',
@@ -65,6 +78,8 @@ export default {
     yes: 'Ja',
     no: 'Nee',
     loading: 'Laden...',
-    error: 'Er is iets misgegaan. Probeer het later opnieuw.'
+    error: 'Er is iets misgegaan. Probeer het later opnieuw.',
+    logout: 'Uitloggen',
+    login: 'Inloggen'
   }
 }

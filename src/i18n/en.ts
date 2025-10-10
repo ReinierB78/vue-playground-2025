@@ -16,6 +16,18 @@ export default {
       empty: 'You have no tasks for today! 🎉',
       descriptionPlaceholder: 'Description of what needs to be done',
       alertWrongFormat: 'Please enter a valid todo'
+    },
+    login: {
+      bodyTitle: 'Sign in to your account',
+      emailLabel: 'Your email',
+      emailPlaceholder: 'Enter your email',
+      passwordLabel: 'Password',
+      passwordPlaceholder: 'Enter your password',
+      rememberMeLabel: 'Remember me',
+      forgotPassword: 'Forgot password?',
+      noAccountText: "Don't have an account yet?",
+      noAccountLink: 'Register here',
+      submitButton: 'Sign in'
     }
   },
   contactForm: {
@@ -46,7 +58,8 @@ export default {
       about: 'About',
       contact: 'Contact',
       buyProduct: 'Buy product',
-      search: 'Search'
+      search: 'Search',
+      login: 'Login'
     },
 
     footer: {
@@ -66,6 +79,8 @@ export default {
     yes: 'Yes',
     no: 'No',
     loading: 'Loading...',
-    error: 'Something went wrong. Please try again later.'
+    error: 'Something went wrong. Please try again later.',
+    logout: 'Logout',
+    login: 'Login'
   }
 }

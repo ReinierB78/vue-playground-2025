@@ -9,6 +9,7 @@ const router = createRouter({
       name: 'home',
       component: () => import('../views/HomeView.vue'),
       meta: {
+        requiresAuth: false,
         location: ['navbar', 'footer']
       }
     },
@@ -17,17 +18,18 @@ const router = createRouter({
       name: 'about',
       component: () => import('../views/AboutView.vue'),
       meta: {
+        requiresAuth: true,
         location: ['navbar', 'footer']
       }
     },
-    {
-      path: '/buy-product',
-      name: 'buyProduct',
-      component: () => import('../views/BuyProduct.vue'),
-      meta: {
-        location: ['navbar', 'footer']
-      }
-    },
+    // {
+    //   path: '/buy-product',
+    //   name: 'buyProduct',
+    //   component: () => import('../views/BuyProduct.vue'),
+    //   meta: {
+    //     location: ['navbar', 'footer']
+    //   }
+    // },
     {
       path: '/contact',
       name: 'contact',
@@ -42,6 +44,15 @@ const router = createRouter({
       component: () => import('../views/SearchView.vue'),
       meta: {
         location: ['footer']
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
+      meta: {
+        requiresAuth: false,
+        location: ['navbar-extra']
       }
     }
   ]

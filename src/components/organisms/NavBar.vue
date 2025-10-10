@@ -18,7 +18,7 @@
                   ? 'text-blue-500 border-b-4 border-blue-500 font-semibold'
                   : null
               ]"
-              v-for="route in routes"
+              v-for="route in navbarRoutes"
               :key="route.path"
               :to="route.path"
             >
@@ -26,8 +26,26 @@
             </router-link>
           </div>
         </div>
+
         <!-- Secondary Navbar items -->
         <div class="hidden md:flex items-center relative">
+          <button
+            class="mr-2"
+            v-if="authStore.isLoggedIn"
+            @click="(authStore.logoutUser(), router.push('/'))"
+          >
+            {{ t('general.logout') }}
+          </button>
+          <router-link
+            v-else
+            class="py-4 px-2"
+            :class="[currentPath === route.path ? 'text-blue-500 font-semibold' : null]"
+            v-for="route in navbarExtraRoutes"
+            :key="route.path"
+            :to="route.path"
+          >
+            {{ t(`message.routes.${String(route.name)}`) }}
+          </router-link>
           <button
             @click="isDropdownOpen = !isDropdownOpen"
             class="px-3 py-2 rounded-md bg-gray-200 hover:bg-gray-300"
@@ -99,7 +117,7 @@
       <div>
         <router-link
           class="block py-2 px-4 text-sm text-blue-500 font-semibold"
-          v-for="route in routes"
+          v-for="route in navbarRoutes"
           :key="route.path"
           :to="route.path"
         >
@@ -113,11 +131,13 @@
 
 <script setup lang="ts">
 import { Logo } from '@/components/organisms'
+import { useAuthStore } from '@/stores/'
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 
 const { t } = useI18n()
+const authStore = useAuthStore()
 
 const { locale: currentLocale, availableLocales } = useI18n()
 
@@ -140,10 +160,25 @@ const changeLocale = (newLocale: string) => {
   localStorage.setItem('userLocaleReinApp', newLocale)
 }
 
-const routes = computed(() =>
+const navbarRoutes = computed(() =>
   router
     .getRoutes()
-    .filter(route => !route.meta?.hideInNav) // Optional: add meta to hide certain routes
+    .filter(route => (route.meta.location as string[]).includes('navbar'))
+    .filter(route => {
+      if (authStore.isLoggedIn) return true
+      // Toon alleen als requiresAuth niet true is
+      return route.meta.requiresAuth !== true
+    })
+    .map(route => ({
+      path: route.path,
+      name: route.name
+    }))
+)
+
+const navbarExtraRoutes = computed(() =>
+  router
+    .getRoutes()
+    .filter(route => (route.meta.location as string[]).includes('navbar-extra'))
     .map(route => ({
       path: route.path,
       name: route.name
