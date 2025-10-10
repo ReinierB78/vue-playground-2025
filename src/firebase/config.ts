@@ -1,6 +1,9 @@
 // firebase/config.ts
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
+
+// Importeer de Auth module
 
 // Je configuratiegegevens van de Firebase Console
 const firebaseConfig = {
@@ -17,3 +20,4 @@ const app = initializeApp(firebaseConfig)
 
 // Initialiseer Firestore en exporteer deze voor gebruik in componenten
 export const db = getFirestore(app)
+export const auth = getAuth(app)

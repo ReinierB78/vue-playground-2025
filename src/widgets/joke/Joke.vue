@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { Button } from '@/components/molecules'
-import { Loading } from '@/components/organismns'
+import { Loading } from '@/components/organisms'
 import WidgetLayout from '@/widgets/WidgetLayout.vue'
 import { useJokeStore } from '@/widgets/joke/joke-store'
 import { computed, onMounted, ref } from 'vue'

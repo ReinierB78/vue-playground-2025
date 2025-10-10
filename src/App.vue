@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col flex justify-between h-screen">
+  <div class="flex-col flex justify-between h-screen relative">
     <div class="sm:px-0">
       <NavBar />
       <div class="max-w-6xl mx-auto">
@@ -14,8 +14,12 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Footer, NavBar } from '@/components/organismns'
-import { RouterLink, RouterView } from 'vue-router'
+import { Footer, NavBar, OverlayModal } from '@/components/organisms'
+import { useModal } from '@/composables/useModal'
+import { ref } from 'vue'
+import { RouterView } from 'vue-router'
+
+const modal = useModal()
 </script>
 
 <style>

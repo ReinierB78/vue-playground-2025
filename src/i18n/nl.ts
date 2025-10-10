@@ -14,7 +14,8 @@ export default {
       addTask: 'Taak toevoegen',
       placeholder: 'Wat moet er gedaan worden?',
       empty: 'Je hebt geen taken voor vandaag! 🎉',
-      descriptionPlaceholder: 'Omschrijving van wat er gedaan moet worden'
+      descriptionPlaceholder: 'Omschrijving van wat er gedaan moet worden',
+      alertWrongFormat: 'Voer een geldige todo in'
     }
   },
   contactForm: {
@@ -52,5 +53,18 @@ export default {
       support: 'Ondersteuning',
       contact: 'Contact'
     }
+  },
+  general: {
+    remove: 'Verwijderen',
+    cancel: 'Annuleren',
+    confirm: 'Bevestigen',
+    submit: 'Verzenden',
+    close: 'Sluiten',
+    edit: 'Bewerken',
+    save: 'Opslaan',
+    yes: 'Ja',
+    no: 'Nee',
+    loading: 'Laden...',
+    error: 'Er is iets misgegaan. Probeer het later opnieuw.'
   }
 }

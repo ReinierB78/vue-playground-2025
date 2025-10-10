@@ -14,7 +14,8 @@ export default {
       addTask: 'Aggiungi attività',
       placeholder: "Cosa c'è da fare?",
       empty: 'Non hai attività per oggi! 🎉',
-      descriptionPlaceholder: "Descrizione di cosa c'è da fare"
+      descriptionPlaceholder: "Descrizione di cosa c'è da fare",
+      alertWrongFormat: 'Inserisci una todo valida'
     }
   },
   contactForm: {
@@ -52,5 +53,18 @@ export default {
       support: 'Supporto',
       contact: 'Contatti'
     }
+  },
+  general: {
+    remove: 'Rimuovi',
+    cancel: 'Annulla',
+    confirm: 'Conferma',
+    submit: 'Invia',
+    close: 'Chiudi',
+    edit: 'Modifica',
+    save: 'Salva',
+    yes: 'Sì',
+    no: 'No',
+    loading: 'Caricamento...',
+    error: 'Qualcosa è andato storto. Riprova più tardi.'
   }
 }

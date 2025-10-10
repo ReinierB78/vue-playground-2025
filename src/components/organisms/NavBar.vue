@@ -112,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '@/components/organismns/Logo.vue'
+import { Logo } from '@/components/organisms'
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'

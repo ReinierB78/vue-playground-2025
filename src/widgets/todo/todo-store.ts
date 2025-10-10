@@ -7,6 +7,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   onSnapshot,
   updateDoc
 } from 'firebase/firestore'
@@ -37,6 +38,16 @@ const useTodoStore = defineStore('todo', () => {
     }
   }
 
+  const getTodo = async (id: string): Promise<Todo> => {
+    const docRef = doc(db, 'todos', id)
+    const todo = await getDoc(docRef)
+
+    return {
+      id,
+      ...todo.data()
+    } as Todo
+  }
+
   const getTodos = (callback: (todos: DocumentData[]) => void) => {
     const unsubscribe = onSnapshot(collection(db, 'todos'), querySnapshot => {
       const todos: DocumentData[] = []
@@ -55,14 +66,14 @@ const useTodoStore = defineStore('todo', () => {
       const docRef = doc(db, 'todos', id)
 
       // 2. Roep de update functie aan met de te wijzigen velden
-      await updateDoc(docRef, {
-        completed: updatedData.completed,
-        title: updatedData.title
-      })
-
-      console.log(`Document met ID: ${id} is succesvol bijgewerkt met de data .`, updatedData)
+      await updateDoc(docRef, updatedData)
+      if (import.meta.env.VITE_SHOW_CONSOLE_LOGS === 'true') {
+        console.log(`Document met ID: ${id} is succesvol bijgewerkt met de data .`, updatedData)
+      }
     } catch (e) {
-      console.error('Fout bij bijwerken document: ', e)
+      if (import.meta.env.VITE_SHOW_CONSOLE_LOGS === 'true') {
+        console.error('Fout bij bijwerken document: ', e)
+      }
     }
   }
 
@@ -89,10 +100,14 @@ const useTodoStore = defineStore('todo', () => {
           id: doc.id,
           ...doc.data()
         }))
-        console.log(`Realtime update ontvangen: ${items.value.length} documenten`)
+        if (import.meta.env.VITE_SHOW_CONSOLE_LOGS === 'true') {
+          console.log(`Realtime update ontvangen: ${items.value.length} documenten`)
+        }
       },
       error => {
-        console.error('Fout bij realtime lezen:', error)
+        if (import.meta.env.VITE_SHOW_CONSOLE_LOGS === 'true') {
+          console.error('Fout bij realtime lezen:', error)
+        }
         status.value = `Fout bij lezen: ${error.message}`
       }
     )
@@ -103,6 +118,7 @@ const useTodoStore = defineStore('todo', () => {
   return {
     createTodo,
     getTodos,
+    getTodo,
     updateTodo,
     deleteTodo,
     getTodoRealtime,

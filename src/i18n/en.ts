@@ -14,7 +14,8 @@ export default {
       addTask: 'Add task',
       placeholder: 'What needs to be done?',
       empty: 'You have no tasks for today! 🎉',
-      descriptionPlaceholder: 'Description of what needs to be done'
+      descriptionPlaceholder: 'Description of what needs to be done',
+      alertWrongFormat: 'Please enter a valid todo'
     }
   },
   contactForm: {
@@ -53,5 +54,18 @@ export default {
       support: 'Support',
       contact: 'Contact'
     }
+  },
+  general: {
+    remove: 'Remove',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    submit: 'Submit',
+    close: 'Close',
+    edit: 'Edit',
+    save: 'Save',
+    yes: 'Yes',
+    no: 'No',
+    loading: 'Loading...',
+    error: 'Something went wrong. Please try again later.'
   }
 }

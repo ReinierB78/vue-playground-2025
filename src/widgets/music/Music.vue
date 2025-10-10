@@ -43,7 +43,7 @@ import { useMusicStore } from '@/widgets/music/music-store'
 import type { SpotifyArtist, SpotifyTrack } from '@/widgets/music/music-store'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Loading from '../../components/organismns/Loading.vue'
+import Loading from '../../components/organisms/Loading.vue'
 import artists from './artists'
 
 const { t } = useI18n()

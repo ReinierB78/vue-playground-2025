@@ -4,21 +4,18 @@
       <Joke />
       <TodoInput />
       <TodoOutput />
-      <!-- <div class="">
-        <FirestoreTester />
-      
-      </div> -->
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-import FirestoreTester from '@/components/organismns/FirestoreTester.vue'
+import { OverlayModal } from '@/components/organisms'
+import { useModal } from '@/composables/useModal'
 import Joke from '@/widgets/joke/Joke.vue'
-import Music from '@/widgets/music/Music.vue'
 import TodoInput from '@/widgets/todo/input/TodoInput.vue'
 import TodoOutput from '@/widgets/todo/output/TodoOutput.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const modal = useModal()
 </script>

@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import MultiStepForm from '@/components/organismns/MultiStepForm.vue'
+import MultiStepForm from '@/components/organisms/MultiStepForm.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
