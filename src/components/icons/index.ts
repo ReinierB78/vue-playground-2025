@@ -2,6 +2,7 @@ import IconCommunity from './IconCommunity.vue'
 import IconDocumentation from './IconDocumentation.vue'
 import IconEcosystem from './IconEcosystem.vue'
 import IconElipsisVertical from './IconElipsisVertical.vue'
+import IconExit from './IconExit.vue'
 import IconSupport from './IconSupport.vue'
 import IconTooling from './IconTooling.vue'
 
@@ -10,6 +11,7 @@ export {
   IconElipsisVertical,
   IconDocumentation,
   IconEcosystem,
+  IconExit,
   IconSupport,
   IconTooling
 }

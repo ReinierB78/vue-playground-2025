@@ -34,7 +34,10 @@
             v-if="authStore.isLoggedIn"
             @click="(authStore.logoutUser(), router.push('/'))"
           >
-            {{ t('general.logout') }}
+            <span class="flex gap-2">
+              <IconExit class="w-4" />
+              {{ t('general.logout') }}
+            </span>
           </button>
           <router-link
             v-else
@@ -135,6 +138,7 @@ import { useAuthStore } from '@/stores/'
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
+import { IconExit } from '../icons'
 
 const { t } = useI18n()
 const authStore = useAuthStore()

@@ -73,11 +73,14 @@ import { Button } from '@/components/molecules'
 import { Input, InputCheckbox } from '@/components/molecules/inputs'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth-store'
 import WidgetLayout from '../WidgetLayout.vue'
 
 const { t } = useI18n()
 const authStore = useAuthStore()
+const route = useRoute()
+const router = useRouter()
 
 type loginCredentials = {
   email: string
@@ -100,5 +103,13 @@ const handleLogin = async () => {
     inputloginCredentials.value?.email,
     inputloginCredentials.value?.password
   )
+  if (user) {
+    const redirect = route.query.redirect as string
+    if (redirect) {
+      router.push(redirect)
+    } else {
+      router.push('/')
+    }
+  }
 }
 </script>
