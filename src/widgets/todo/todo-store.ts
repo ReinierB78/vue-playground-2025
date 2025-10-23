@@ -19,7 +19,6 @@ const useTodoStore = defineStore('todo', () => {
   const status = ref('')
 
   const createTodo = async (todo: Todo) => {
-    status.value = 'Bezig met toevoegen...'
     try {
       const docRef = await addDoc(collection(db, 'todos'), {
         title: todo.title,

@@ -55,18 +55,17 @@ const router = createRouter({
         requiresAuth: false,
         location: ['navbar-extra']
       }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../views/ProfileView.vue'),
+      meta: {
+        requiresAuth: true,
+        location: ['navbar-extra']
+      }
     }
   ]
-})
-
-// Navigation guard voor auth
-router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore()
-  if (to.meta.requiresAuth && !authStore.isLoggedIn) {
-    next({ path: '/login', query: { redirect: to.fullPath } })
-  } else {
-    next()
-  }
 })
 
 export default router

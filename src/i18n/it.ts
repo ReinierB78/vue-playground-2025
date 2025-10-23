@@ -59,7 +59,9 @@ export default {
       contact: 'Contatti',
       buyProduct: 'Compra prodotto',
       search: 'Cherco',
-      login: 'Accedi'
+      login: 'Accedi',
+      profile: 'Profilo',
+      logout: 'Uscita'
     },
     footer: {
       solutions: 'Soluzioni',

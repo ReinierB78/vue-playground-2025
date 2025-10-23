@@ -1,4 +1,6 @@
 import { auth } from '@/firebase/config'
+import { useUserStore } from '@/stores'
+import { User } from '@/types/user'
 import {
   User as FirebaseUser,
   createUserWithEmailAndPassword,
@@ -9,38 +11,42 @@ import {
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
-interface AuthState {
-  user: FirebaseUser | null
-  authIsReady: boolean
-}
-
 export const useAuthStore = defineStore('login', () => {
   const user = ref<FirebaseUser | null>(null)
   const authIsReady = ref(false)
 
+  const userProfile = ref<User | null>(null)
+  const userStore = useUserStore()
+
   const isLoggedIn = computed(() => !!user.value)
   const userId = computed(() => user.value?.uid || null)
 
-  const initAuth = () => {
-    // onAuthStateChanged is een Firebase functie die een "unsubscribe" functie teruggeeft.
-    // Je roept deze functie maar één keer op in de app lifecycle.
+  const initAuth = async () => {
+    onAuthStateChanged(auth, async firebaseUser => {
+      // Make the callback ASYNC
+      if (firebaseUser) {
+        // 1. Auth user is logged in
+        user.value = firebaseUser
 
-    onAuthStateChanged(auth, firebaseUser => {
-      // De 'firebaseUser' is van het type 'FirebaseUser' of 'null'
+        try {
+          // 2. FETCH OR CREATE THE PROFILE
+          const profileData = await userStore.fetchOrCreateProfile(firebaseUser)
+          userProfile.value = profileData // Store the profile in the store
+        } catch (error) {
+          console.error('Error fetching/creating profile:', error)
+          // Optionally log out the user if there's a fatal error
+        }
+      } else {
+        // User is logged out
+        user.value = null
+        userProfile.value = null // Ensure the profile is also cleared
+      }
 
-      // Update de state
-      user.value = firebaseUser
-
-      // Zodra we de status weten, zetten we 'authIsReady' op true.
-      // Dit mag maar één keer gebeuren.
       if (!authIsReady.value) {
         authIsReady.value = true
       }
-
-      console.log('Auth State Changed. User:', firebaseUser ? firebaseUser.uid : 'None')
     })
   }
-
   const registerUser = async (email: string, password: string): Promise<unknown> => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
@@ -70,5 +76,15 @@ export const useAuthStore = defineStore('login', () => {
     }
   }
 
-  return { registerUser, loginUser, logoutUser, user, isLoggedIn, userId, authIsReady, initAuth }
+  return {
+    registerUser,
+    loginUser,
+    logoutUser,
+    user,
+    isLoggedIn,
+    userId,
+    authIsReady,
+    initAuth,
+    userProfile
+  }
 })

@@ -30,8 +30,8 @@
         <!-- Secondary Navbar items -->
         <div class="hidden md:flex items-center relative">
           <button
-            class="mr-2"
             v-if="authStore.isLoggedIn"
+            class="mr-2"
             @click="(authStore.logoutUser(), router.push('/'))"
           >
             <span class="flex gap-2">
@@ -40,7 +40,6 @@
             </span>
           </button>
           <router-link
-            v-else
             class="py-4 px-2"
             :class="[currentPath === route.path ? 'text-blue-500 font-semibold' : null]"
             v-for="route in navbarExtraRoutes"
@@ -178,11 +177,14 @@ const navbarRoutes = computed(() =>
       name: route.name
     }))
 )
-
 const navbarExtraRoutes = computed(() =>
   router
     .getRoutes()
     .filter(route => (route.meta.location as string[]).includes('navbar-extra'))
+    .filter(route => {
+      if (authStore.isLoggedIn) return route.meta.requiresAuth === true
+      return route.meta.requiresAuth === false || route.meta.requiresAuth === undefined
+    })
     .map(route => ({
       path: route.path,
       name: route.name

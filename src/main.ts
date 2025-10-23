@@ -30,13 +30,9 @@ router.beforeEach(async (to, from, next) => {
     })
   }
 
-  const requiresAuth = to.meta.requiresAuth
-
-  if (requiresAuth && !authStore.isLoggedIn) {
-    // Gebruiker is niet ingelogd, stuur naar login
-    next({ name: 'login' }) // Gebruik named routes indien mogelijk
+  if (to.meta.requiresAuth && !authStore.isLoggedIn) {
+    next({ path: '/login', query: { redirect: to.fullPath } })
   } else {
-    // Alles is in orde, ga verder
     next()
   }
 })

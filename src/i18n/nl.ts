@@ -59,7 +59,9 @@ export default {
       contact: 'Contact',
       buyProduct: 'Product kopen',
       search: 'Zoeken',
-      login: 'Inloggen'
+      login: 'Inloggen',
+      profile: 'Profiel',
+      logout: 'Uitloggen'
     },
     footer: {
       solutions: 'Oplossingen',

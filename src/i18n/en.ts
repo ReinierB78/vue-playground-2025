@@ -59,7 +59,9 @@ export default {
       contact: 'Contact',
       buyProduct: 'Buy product',
       search: 'Search',
-      login: 'Login'
+      login: 'Login',
+      profile: 'Profile',
+      logout: 'Logout'
     },
 
     footer: {
